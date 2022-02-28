@@ -1,27 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8">
+    <meta name="author" content="Tomasz Kapcia"/>
+
+    <title>Nagrywarka ekranu by Tomuś</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    
+    <!-- <script src="../node_modules/fix-webm-duration/fix-webm-duration.js"></script> -->
     <script defer src="render.js"></script>
   </head>
-  <body class="content">
-    <h1>⚡ Electron Screen Recorder</h1>
+  
+  <body>
+    <div class="container">
+      <div id="videoContainer">
+        <h3>Podgląd</h3>
 
-    <video></video>
+        <video muted></video>
 
-    <button id="startBtn" class="button is-primary">Start</button>
-    <button id="stopBtn" class="button is-warning">Stop</button>
+        <hr/>
+      </div>
+      
+      <div id="buttonContainer">
+        <h3>Nagrywanie</h3>
 
-    <hr />
+        <button id="startBtn" class="button is-primary">
+          Start
+        </button>
+        <button id="stopBtn" class="button is-warning">
+          Stop
+        </button>
 
-    <button id="videoSelectBtn" class="button is-text">
-      Choose a Video Source
-    </button>
+        <hr/>
+      </div>
+
+      <div>
+        <h3>Opcje</h3>
+
+        <table>
+          <tr>
+            <th>
+              Źródło:
+            </th>
+            <td>
+              <button id="videoSelectBtn" class="button is-text">
+                Wybierz źródło
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nagrywaj audio:<br>
+            </th>
+            <td>
+              <button disabled id="recordAudioBtn" class="button is-text">
+                Nagrywanie włączone
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Podgląd wideo:
+            </th>
+            <td>
+              <button disabled id="showVideoBtn" class="button is-text">
+                Podgląd włączony
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Zapis automatyczny:
+            </th>
+            <td>
+              <button disabled id="autoSaveBtn" class="button is-text">
+                Nie zapisuj automatycznie
+              </button>
+              <div id="autoSaveCont">
+                <input type="number" id="autoSaveNum" class="input" min="0"/> minut
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
